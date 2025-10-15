@@ -1,0 +1,181 @@
+/* Reset básico para melhor consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estrutura do Contêiner */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden; /* Limpa floats */
+}
+
+/* Estilo do Cabeçalho (Header) */
+header {
+    background: #004a99; /* Azul escuro */
+    color: #fff;
+    padding: 1em 0;
+    border-bottom: 3px solid #ffcc00; /* Dourado */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Navegação Principal (Menu) */
+#main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+#main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    display: block;
+}
+
+#main-nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Botão do Menu Mobile (escondido por padrão) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Área de Destaque */
+.destaque, .ultimas-noticias {
+    padding: 20px 0;
+}
+
+.destaque h2, .ultimas-noticias h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004a99;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Estilo dos Cards de Notícia */
+.card-noticia {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-noticia img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.card-noticia h3, .card-noticia h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-noticia.principal {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Layout de Grid para Últimas Notícias */
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Link "Leia Mais" */
+.leia-mais {
+    display: inline-block;
+    background: #ffcc00;
+    color: #004a99;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.leia-mais:hover {
+    background: #e6b800;
+}
+
+/* Rodapé (Footer) */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/* Media Query para Responsividade (Telas Menores) */
+@media (max-width: 768px) {
+    /* Menu Mobile */
+    #main-nav {
+        display: none; /* Esconde o menu por padrão no mobile */
+        width: 100%;
+    }
+
+    #main-nav.active {
+        display: block; /* Mostra quando a classe 'active' for adicionada pelo JS */
+    }
+
+    #main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        background: #003366; /* Cor de fundo para o menu expandido */
+        margin-top: 10px;
+    }
+
+    #main-nav ul li a {
+        padding: 10px;
+        border-bottom: 1px solid #004a99;
+    }
+    
+    .menu-toggle {
+        display: block; /* Mostra o botão do menu no mobile */
+    }
+    
+    header .container {
+        flex-wrap: wrap; /* Permite que os itens quebrem linha */
+    }
+    
+    .card-noticia.principal {
+        max-width: 100%; /* Ocupa toda a largura no mobile */
+    }
+}
